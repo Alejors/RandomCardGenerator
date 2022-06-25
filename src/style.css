@@ -1,0 +1,20 @@
+*{
+    font-size: 50px;
+}
+body {
+    background: green;
+}
+
+.card{
+    height: 71vh;
+    width: 27vw;
+}
+
+img {
+    height: 8vh;
+    width: 4vw;
+
+}
+.bottom{
+    transform: rotate(180deg);
+}
