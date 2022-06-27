@@ -1,9 +1,8 @@
 body {
     background: green;
-    display: flex;
 }
 
-.card{
+.carta{
     margin: 20px auto;
     height: 600px;
     width: 400px;
@@ -11,24 +10,24 @@ body {
     border-radius: 20px;
 }
 
-.card div{
+.carta div{
     height: 33%;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.top, .bottom {
+#top, #bottom {
     padding: 10px 0 0 20px;
     font-size: 120px;
 }
 
-.center {
+div[id^="center"] {
     text-align: center;
     vertical-align:middle;
     padding: 30px;
     font-size: 140px;
 }
 
-.bottom{
+#bottom{
     transform: rotate(180deg);
 }
