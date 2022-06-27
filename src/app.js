@@ -13,28 +13,28 @@ window.onload = function () {
   if (selectorpinta == 0 || selectorpinta == 1) {
     document.querySelector('#center').style.color = 'red';
     if (selectorpinta == 0) {
-      for (var i = 0; i < pinta.length; i++) {
+      for (let i = 0; i < pinta.length; i++) {
         pinta[i].innerHTML = '♥';
         pinta[i].style.color = "red";
       }
     }
     else {
-      for (var i = 0; i < pinta.length; i++) {
+      for (let i = 0; i < pinta.length; i++) {
         pinta[i].innerHTML = '♦';
         pinta[i].style.color = 'red';
       }
     }
   }
   else if (selectorpinta == 2) {
-    for (var i = 0; i < pinta.length; i++) {
+    for (let i = 0; i < pinta.length; i++) {
       pinta[i].innerHTML = '♠';
     }
   }
   else {
-    for (var i = 0; i < pinta.length; i++) {
+    for (let i = 0; i < pinta.length; i++) {
       pinta[i].innerHTML = '♣';
     }
-  };
+  }
 
   //BOTON NUEVA CARTA
   var boton = document.getElementById("boton");
@@ -45,7 +45,7 @@ window.onload = function () {
   //CONTADOR 
   var timmer = document.getElementById("start");
   timmer.addEventListener('click', (e) => {
-    interval = window.setInterval(otracarta, 10000);
+    let interval = window.setInterval(otracarta, 10000);
   });
 
   var detener = document.getElementById("stop");
@@ -56,17 +56,28 @@ window.onload = function () {
   //CAMBIO DE MEDIDAS CARTA
   let ancho = document.getElementById("width");
   let carta = document.getElementsByClassName("carta");
+  let alto = document.getElementById("height");
+
   ancho.addEventListener('change', (e) => {
     if (ancho.value != null) {
       for(var i = 0; i < carta.length; i++){
-      carta[i].style.width = ancho+`px`;
+      carta[i].style.width = ancho.value + `px`;
       }
       ancho.value = "";
     }
   });
+  
+  alto.addEventListener('change', (e) => {
+    if (alto.value != null) {
+      for(var i = 0; i < carta.length; i++){
+      carta[i].style.height = alto.value + `px`;
+      }
+      alto.value = "";
+    }
+  });
 
 //FIN ONLOAD
-}
+};
 
 function getnumber() {
   let number = Math.floor(Math.random() * 13 + 1);
@@ -100,14 +111,14 @@ function otracarta(){
   nuevacarta.classList.add("carta", "col-6");
   let top = document.createElement("div");
   top.classList.add(`suit${contador}`);
-  top.setAttribute("id", "top")
+  top.setAttribute("id", "top");
   nuevacarta.appendChild(top);
   let mid = document.createElement("div");
   mid.setAttribute("id", `center${contador}`);
   nuevacarta.appendChild(mid);
   let btm = document.createElement("div");
   btm.classList.add(`suit${contador}`);
-  btm.setAttribute("id", "bottom")
+  btm.setAttribute("id", "bottom");
   nuevacarta.appendChild(btm);
   cuerpo.appendChild(nuevacarta);
 
@@ -127,20 +138,20 @@ function otracarta(){
       }
     }
     else {
-      for (var i = 0; i < pinta.length; i++) {
+      for (let i = 0; i < pinta.length; i++) {
         pinta[i].innerHTML = '♦';
         pinta[i].style.color = 'red';
       }
     }
   }
   else if (selectorpinta == 2) {
-    for (var i = 0; i < pinta.length; i++) {
+    for (let i = 0; i < pinta.length; i++) {
       pinta[i].innerHTML = '♠';
     }
   }
   else {
-    for (var i = 0; i < pinta.length; i++) {
+    for (let i = 0; i < pinta.length; i++) {
       pinta[i].innerHTML = '♣';
     }
-  };
-};
+  }
+}
