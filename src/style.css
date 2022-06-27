@@ -11,20 +11,20 @@ body {
 }
 
 .carta div{
-    height: 33%;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
 
 #top, #bottom {
+    height: 30%;
     padding-left: 14px;
-    font-size: 100px;
-    transform: translateY(-20px);
+    font-size: 6em;
 }
 
 div[id^="center"] {
+    height: 40%;
     text-align: center;
-    font-size: 105px;
+    font-size: 8em;
 }
 
 #bottom{
