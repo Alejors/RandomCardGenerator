@@ -66,9 +66,9 @@ window.onload = function () {
     contador++;
     console.log(`contador:${contador}`);
 
-    var cuerpo = document.querySelector('body');
+    var cuerpo = document.querySelector('.row');
     let nuevacarta = document.createElement("div");
-    nuevacarta.classList.add("carta");
+    nuevacarta.classList.add("carta", "col-6");
     let top = document.createElement("div");
     top.classList.add(`suit${contador}`);
     top.setAttribute("id", "top")
@@ -115,6 +115,8 @@ window.onload = function () {
       }
     };
   });
+
+
 
   //CAMBIO DE MEDIDAS CARTA
   var ancho = document.getElementById("width");
