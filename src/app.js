@@ -43,9 +43,10 @@ window.onload = function () {
   });
 
   //CONTADOR 
+  let interval;
   var timmer = document.getElementById("start");
   timmer.addEventListener('click', (e) => {
-    let interval = window.setInterval(otracarta, 10000);
+    interval = window.setInterval(otracarta, 3000);
   });
 
   var detener = document.getElementById("stop");
