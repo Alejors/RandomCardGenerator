@@ -1,56 +1,55 @@
+import "./style.css";
+
 var contador = 0;
 
-window.onload = function () {
-  console.log('What are we playing today?');
+window.onload = function() {
+  console.log("What are we playing today?");
   //FUNCION PARA NUMERO
-  let valor = document.querySelector('#center');
+  let valor = document.querySelector("#center");
   valor.appendChild(getnumber());
 
   //FUNCION PARA PINTA
-  var pinta = document.querySelectorAll('.suit');
+  var pinta = document.querySelectorAll(".suit");
   let selectorpinta = Math.floor(Math.random() * 4);
 
   if (selectorpinta == 0 || selectorpinta == 1) {
-    document.querySelector('#center').style.color = 'red';
+    document.querySelector("#center").style.color = "red";
     if (selectorpinta == 0) {
       for (let i = 0; i < pinta.length; i++) {
-        pinta[i].innerHTML = '♥';
+        pinta[i].innerHTML = "♥";
+        pinta[i].style.color = "red";
+      }
+    } else {
+      for (let i = 0; i < pinta.length; i++) {
+        pinta[i].innerHTML = "♦";
         pinta[i].style.color = "red";
       }
     }
-    else {
-      for (let i = 0; i < pinta.length; i++) {
-        pinta[i].innerHTML = '♦';
-        pinta[i].style.color = 'red';
-      }
-    }
-  }
-  else if (selectorpinta == 2) {
+  } else if (selectorpinta == 2) {
     for (let i = 0; i < pinta.length; i++) {
-      pinta[i].innerHTML = '♠';
+      pinta[i].innerHTML = "♠";
     }
-  }
-  else {
+  } else {
     for (let i = 0; i < pinta.length; i++) {
-      pinta[i].innerHTML = '♣';
+      pinta[i].innerHTML = "♣";
     }
   }
 
   //BOTON NUEVA CARTA
   var boton = document.getElementById("boton");
-  boton.addEventListener('click', (e) => {
+  boton.addEventListener("click", e => {
     otracarta();
   });
 
-  //CONTADOR 
+  //CONTADOR
   let interval;
   var timmer = document.getElementById("start");
-  timmer.addEventListener('click', (e) => {
+  timmer.addEventListener("click", e => {
     interval = window.setInterval(otracarta, 3000);
   });
 
   var detener = document.getElementById("stop");
-  detener.addEventListener('click', (e) => {
+  detener.addEventListener("click", e => {
     clearInterval(interval);
   });
 
@@ -59,55 +58,51 @@ window.onload = function () {
   let carta = document.getElementsByClassName("carta");
   let alto = document.getElementById("height");
 
-  ancho.addEventListener('change', (e) => {
+  ancho.addEventListener("change", e => {
     if (ancho.value != null) {
-      for(var i = 0; i < carta.length; i++){
-      carta[i].style.width = ancho.value + `px`;
+      for (var i = 0; i < carta.length; i++) {
+        carta[i].style.width = ancho.value + `px`;
       }
       ancho.value = "";
     }
   });
-  
-  alto.addEventListener('change', (e) => {
+
+  alto.addEventListener("change", e => {
     if (alto.value != null) {
-      for(var i = 0; i < carta.length; i++){
-      carta[i].style.height = alto.value + `px`;
+      for (var i = 0; i < carta.length; i++) {
+        carta[i].style.height = alto.value + `px`;
       }
       alto.value = "";
     }
   });
 
-//FIN ONLOAD
+  //FIN ONLOAD
 };
 
 function getnumber() {
   let number = Math.floor(Math.random() * 13 + 1);
   if (number == 13) {
-    let K = document.createTextNode('K');
+    let K = document.createTextNode("K");
     return K;
-  }
-  else if (number == 12) {
-    let Q = document.createTextNode('Q');
+  } else if (number == 12) {
+    let Q = document.createTextNode("Q");
     return Q;
-  }
-  else if (number == 11) {
-    let J = document.createTextNode('J');
+  } else if (number == 11) {
+    let J = document.createTextNode("J");
     return J;
-  }
-  else if (number == 1) {
-    let A = document.createTextNode('A');
+  } else if (number == 1) {
+    let A = document.createTextNode("A");
     return A;
-  }
-  else {
+  } else {
     let text = document.createTextNode(`${number}`);
     return text;
   }
 }
 
-function otracarta(){
+function otracarta() {
   contador++;
 
-  var cuerpo = document.querySelector('.row');
+  var cuerpo = document.querySelector(".row");
   let nuevacarta = document.createElement("div");
   nuevacarta.classList.add("carta", "col-6");
   let top = document.createElement("div");
@@ -131,28 +126,25 @@ function otracarta(){
   var pinta = document.querySelectorAll(`.suit${contador}`);
   let selectorpinta = Math.floor(Math.random() * 4);
   if (selectorpinta == 0 || selectorpinta == 1) {
-    document.querySelector(`#center${contador}`).style.color = 'red';
+    document.querySelector(`#center${contador}`).style.color = "red";
     if (selectorpinta == 0) {
       for (var i = 0; i < pinta.length; i++) {
-        pinta[i].innerHTML = '♥';
+        pinta[i].innerHTML = "♥";
+        pinta[i].style.color = "red";
+      }
+    } else {
+      for (let i = 0; i < pinta.length; i++) {
+        pinta[i].innerHTML = "♦";
         pinta[i].style.color = "red";
       }
     }
-    else {
-      for (let i = 0; i < pinta.length; i++) {
-        pinta[i].innerHTML = '♦';
-        pinta[i].style.color = 'red';
-      }
-    }
-  }
-  else if (selectorpinta == 2) {
+  } else if (selectorpinta == 2) {
     for (let i = 0; i < pinta.length; i++) {
-      pinta[i].innerHTML = '♠';
+      pinta[i].innerHTML = "♠";
     }
-  }
-  else {
+  } else {
     for (let i = 0; i < pinta.length; i++) {
-      pinta[i].innerHTML = '♣';
+      pinta[i].innerHTML = "♣";
     }
   }
 }
